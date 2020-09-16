@@ -1,0 +1,9 @@
+FROM ubuntu:latest
+WORKDIR /data
+COPY ./requirements.txt /requirements.txt
+RUN pip install -r /requirements.txt
+COPY ./decryptfile.py /decryptfile.py
+CMD [ "python", "/decryptfile.py" ]
+
+
+
