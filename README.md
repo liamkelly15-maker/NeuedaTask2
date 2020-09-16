@@ -1,7 +1,7 @@
 # NeuedaTask2
 Planned Steps
-Steps
-1.Palce python script files in GiThub
+
+1.Place python script files in GiThub
    python script (encryptfile) will convert json to xml and encrypt 
    python script (decryptfile) will decrypt the xml 
 
