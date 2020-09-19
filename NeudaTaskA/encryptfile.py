@@ -7,7 +7,7 @@
 import json as j
 from cryptography.fernet import Fernet
 
-with open("../json_file.json") as json_format_file:
+with open("json_file.json") as json_format_file:
   d = j.load(json_format_file)
 import xml.etree.cElementTree as e
 r = e.Element("Employee")
@@ -21,7 +21,7 @@ for z in d["Projects"]:
   e.SubElement(project,"Category").text = z["Category"]
   e.SubElement(project,"Months").text = str(z["Months"])
 a = e.ElementTree(r)
-a.write("json_to_xml.xml")
+a.write("../json_to_xml.xml")
 
 def write_key():
     """Generates a key and save it into a file"""

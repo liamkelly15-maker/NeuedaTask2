@@ -3,12 +3,16 @@ version: '3'
 services:
   encrypt:
     build: ./NeudaTaskA
-
+    volumes:
+      - 'myshare:/shared'
 
   decrypt:
     build: ./NeudaTaskB
     links:
       - encrypt
+    volumes:
+          - 'myshare:/shared'
 
-
-
+volumes:
+  myshare:
+    driver: local

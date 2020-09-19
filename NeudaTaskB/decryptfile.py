@@ -26,8 +26,6 @@ def decrypt(filename, key):
 #load the key
 key = load_key()
 #check the key
-
-
 #print(key)
 # file name
 file = "../json_to_xml.xml"
