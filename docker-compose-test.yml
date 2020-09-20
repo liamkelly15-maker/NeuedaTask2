@@ -4,12 +4,7 @@ services:
   encrypt:
     build: ./NeudaTaskA
     volumes:
-      - type: bind
-        source: ./
-        target: /data
-      - type: volume
-        source: datavolume
-        target: /data
+      - datavolume: /data:rw
 
   decrypt:
     build: ./NeudaTaskB
@@ -18,9 +13,7 @@ services:
     depends_on:
       - "encrypt"
     volumes:
-      - type: volume
-        source: datavolume
-        target: /data
+      - datavolume: /data:rw
 
 volumes:
   datavolume: {}
