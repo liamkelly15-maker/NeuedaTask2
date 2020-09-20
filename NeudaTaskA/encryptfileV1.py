@@ -1,22 +1,27 @@
 # Neueda Task Python script.
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
 
-import json
+# Press Shift+F10 to execute it.
+# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+
+import json as j
 from cryptography.fernet import Fernet
-from json2xml import json2xml
-from json2xml.utils import readfromstring
 
-# Opening JSON file
-f = open('../json_file.json',)
-
-# returns JSON object as a dictionary
-data = json.load(f)
-#convert dict to string
-data2= json.dumps(data)
-data3 = readfromstring(data2)
-#convert the string to xml and write to file
-with open("../json_to_xml.xml", "w") as f:
-    f.write(json2xml.Json2xml(data3).to_xml())
+with open("json_file.json") as json_format_file:
+  d = j.load(json_format_file)
+import xml.etree.cElementTree as e
+r = e.Element("Employee")
+e.SubElement(r,"Name").text = d["Name"]
+e.SubElement(r,"Designation").text = d["Designation"]
+e.SubElement(r,"Salary").text = str(d["Salary"])
+e.SubElement(r,"Age").text = str(d["Age"])
+project = e.SubElement(r,"Projects")
+for z in d["Projects"]:
+  e.SubElement(project,"Topic").text = z["Topic"]
+  e.SubElement(project,"Category").text = z["Category"]
+  e.SubElement(project,"Months").text = str(z["Months"])
+a = e.ElementTree(r)
+a.write("../json_to_xml.xml")
 
 def write_key():
     """Generates a key and save it into a file"""
@@ -39,6 +44,7 @@ def encrypt(filename, key):
         # write the encrypted file
         with open(filename, "wb") as file:
             file.write(encrypted_data)
+
 
 def decrypt(filename, key):
     """Given a filename (str or xml) and key (bytes), it decrypts the file and write it"""
