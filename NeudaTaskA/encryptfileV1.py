@@ -7,7 +7,7 @@
 import json as j
 from cryptography.fernet import Fernet
 
-with open("json_file.json") as json_format_file:
+with open("../json_file.json") as json_format_file:
   d = j.load(json_format_file)
 import xml.etree.cElementTree as e
 r = e.Element("Employee")

@@ -7,7 +7,7 @@ from json2xml import json2xml
 from json2xml.utils import readfromstring
 
 # Opening JSON file
-f = open('./json_file.json',)
+f = open("./jsonfileloc/json_file.json", "r")
 
 # returns JSON object as a dictionary
 data = json.load(f)

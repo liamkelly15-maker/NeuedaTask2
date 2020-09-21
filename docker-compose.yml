@@ -5,8 +5,8 @@ services:
     build: ./NeudaTaskA
     volumes:
       - type: bind
-        source: C:\Users\Liam\PycharmProjects\NeuedaTask2\json_file.json
-        target: /data/json_file.json
+        source: C:\Users\Liam\PycharmProjects\NeuedaTask2
+        target: /jsonfileloc
       - type: volume
         source: datavolume
         target: /data
