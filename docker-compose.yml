@@ -5,8 +5,8 @@ services:
     build: ./NeudaTaskA
     volumes:
       - type: bind
-        source: ./
-        target: /data
+        source: C:\Users\Liam\PycharmProjects\NeuedaTask2\json_file.json
+        target: /data/json_file.json
       - type: volume
         source: datavolume
         target: /data
