@@ -13,8 +13,6 @@ services:
 
   decrypt:
     build: ./NeudaTaskB
-    links:
-      - "encrypt"
     depends_on:
       - "encrypt"
     volumes:
